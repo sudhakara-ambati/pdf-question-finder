@@ -19,7 +19,7 @@ def search_pdf_in_memory(pdf_content, search_words):
 
 def capture_screenshot_from_page(pdf_content, page_num):
     doc = fitz.open(stream=BytesIO(pdf_content))
-    page = doc.load_page(page_num - 1)  # Page numbers start from 0 in PyMuPDF
+    page = doc.load_page(page_num - 1)
     pixmap = page.get_pixmap()
     image = Image.frombytes("RGB", [pixmap.width, pixmap.height], pixmap.samples)
     return image
@@ -27,24 +27,55 @@ def capture_screenshot_from_page(pdf_content, page_num):
 def create_pdf_with_images(images, output_pdf):
     images[0].save(output_pdf, save_all=True, append_images=images[1:])
 
-url = "https://pmt.physicsandmathstutor.com/download/Maths/GCSE/Past-Papers/Edexcel/Paper-1H/MA/Nov%202021%20MA.pdf"
-search_words = ["probability", "graph"]
+urls = [
+    "https://revisionmaths.com/sites/mathsrevision.net/files/imce/1MA1_1H_que_20211103.pdf",
+    "https://revisionmaths.com/sites/mathsrevision.net/files/imce/1MA1_2H_que_20211105.pdf",
+    "https://revisionmaths.com/sites/mathsrevision.net/files/imce/1MA1_3H_que_20211109.pdf",
+    "https://revisionmaths.com/sites/mathsrevision.net/files/imce/1ma1-1h-que-20220521.pdf",
+    "https://revisionmaths.com/sites/mathsrevision.net/files/imce/1ma1-2h-que-20220608.pdf",
+    "https://revisionmaths.com/sites/mathsrevision.net/files/imce/1ma1-3h-que-20220614.pdf",
+    "https://revisionmaths.com/sites/mathsrevision.net/files/imce/1MA1_1H_que_20201104.pdf",
+    "https://revisionmaths.com/sites/mathsrevision.net/files/imce/1MA1_2H_que_20201106.pdf",
+    "https://revisionmaths.com/sites/mathsrevision.net/files/imce/1MA1_3H_que_20201110.pdf",
+    "https://revisionmaths.com/sites/mathsrevision.net/files/imce/1MA1_1H_que_20190522.pdf",
+    "https://revisionmaths.com/sites/mathsrevision.net/files/imce/1MA1_2H_que_20190607.pdf",
+    "https://revisionmaths.com/sites/mathsrevision.net/files/imce/1MA1_3H_que_20190612.pdf",
+    "https://revisionmaths.com/sites/mathsrevision.net/files/imce/Questionpaper-Paper1H-November2018.pdf",
+    "https://revisionmaths.com/sites/mathsrevision.net/files/imce/Questionpaper-Paper2H-November2018.pdf",
+    "https://revisionmaths.com/sites/mathsrevision.net/files/imce/Questionpaper-Paper3H-November2018.pdf",
+    "https://revisionmaths.com/sites/mathsrevision.net/files/imce/1MA1_1H_QP_0.pdf",
+    "https://revisionmaths.com/sites/mathsrevision.net/files/imce/1MA1_2H_QP_0.pdf",
+    "https://revisionmaths.com/sites/mathsrevision.net/files/imce/1MA1_3H_QP_0.pdf",
+    "https://revisionmaths.com/sites/mathsrevision.net/files/imce/1MA1_1H_QP_1.pdf",
+    "https://revisionmaths.com/sites/mathsrevision.net/files/imce/1MA1_2H_QP_1.pdf",
+    "https://revisionmaths.com/sites/mathsrevision.net/files/imce/1MA1_3H_QP_1.pdf",
+    "https://revisionmaths.com/sites/mathsrevision.net/files/imce/1MA1_1H_QP.pdf",
+    "https://revisionmaths.com/sites/mathsrevision.net/files/imce/1MA1_2H_QP.pdf",
+    "https://revisionmaths.com/sites/mathsrevision.net/files/imce/1MA1_3H_QP.pdf"
+    ]
 
-pdf_response = requests.get(url)
-if pdf_response.status_code == 200:
-    pdf_content = pdf_response.content
-    found_pages = search_pdf_in_memory(pdf_content, search_words)
-    
-    if found_pages:
-        print(f"The word '{search_words[0]}' was found on pages: {', '.join(map(str, found_pages))}")
-        images = []
-        for page_num in found_pages:
-            image = capture_screenshot_from_page(pdf_content, page_num)
-            images.append(image)
-        output_pdf = "output.pdf"
-        create_pdf_with_images(images, output_pdf)
-        print(f"PDF with screenshots saved as '{output_pdf}'")
+search_words = ["probability"]
+all_images = []
+
+for url in urls:
+    pdf_response = requests.get(url)
+    if pdf_response.status_code == 200:
+        pdf_content = pdf_response.content
+        found_pages = search_pdf_in_memory(pdf_content, search_words)
+        
+        if found_pages:
+            print(f"The word '{search_words[0]}' was found on pages: {', '.join(map(str, found_pages))}")
+            images = []
+            for page_num in found_pages:
+                image = capture_screenshot_from_page(pdf_content, page_num)
+                images.append(image)
+            all_images.extend(images)
+            print(f"Images from {url} appended.")
+        else:
+            print(f"The word was not found in the PDF from {url}.")
     else:
-        print("The word was not found in the PDF.")
-else:
-    print("Failed to download PDF.")
+        print(f"Failed to download PDF from {url}.")
+
+output_pdf = "output.pdf"
+create_pdf_with_images(all_images, output_pdf)
+print(f"PDF with screenshots saved as '{output_pdf}'")
