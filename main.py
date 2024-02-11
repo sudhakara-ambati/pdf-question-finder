@@ -54,7 +54,7 @@ urls = [
     "https://revisionmaths.com/sites/mathsrevision.net/files/imce/1MA1_3H_QP.pdf"
     ]
 
-search_words = ["probability"]
+search_words = ["box plot", "probability"]
 all_images = []
 
 for url in urls:
@@ -64,7 +64,7 @@ for url in urls:
         found_pages = search_pdf_in_memory(pdf_content, search_words)
         
         if found_pages:
-            print(f"The word '{search_words[0]}' was found on pages: {', '.join(map(str, found_pages))}")
+            print(f"The words '{', '.join(search_words)}' were found on pages: {', '.join(map(str, found_pages))}")
             images = []
             for page_num in found_pages:
                 image = capture_screenshot_from_page(pdf_content, page_num)
@@ -76,6 +76,6 @@ for url in urls:
     else:
         print(f"Failed to download PDF from {url}.")
 
-output_pdf = "output.pdf"
+output_pdf = "_".join(search_words) + ".pdf"
 create_pdf_with_images(all_images, output_pdf)
 print(f"PDF with screenshots saved as '{output_pdf}'")
