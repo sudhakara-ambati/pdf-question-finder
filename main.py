@@ -6,14 +6,14 @@ from PIL import Image
 
 def search_pdf_in_memory(pdf_content, search_words):
     found_pages = []
-    reader = PyPDF2.PdfReader(BytesIO(pdf_content))
-    num_pages = len(reader.pages)
+    reader = PyPDF2.PdfReader(BytesIO(pdf_content)) #PDF Content
+    num_pages = len(reader.pages) #Number of pages
     
     for page_num in range(num_pages):
         page_text = reader.pages[page_num].extract_text()
         for word in search_words:
-            if word.lower() in page_text.lower():
-                found_pages.append(page_num + 1)
+            if word.lower() in page_text.lower(): #Search for word in pages
+                found_pages.append(page_num + 1) #Page numbers start at 0
                 
     return found_pages
 
@@ -22,10 +22,10 @@ def capture_screenshot_from_page(pdf_content, page_num):
     page = doc.load_page(page_num - 1)
     pixmap = page.get_pixmap()
     image = Image.frombytes("RGB", [pixmap.width, pixmap.height], pixmap.samples)
-    return image
+    return image #Taking screenshot of page
 
 def create_pdf_with_images(images, output_pdf):
-    images[0].save(output_pdf, save_all=True, append_images=images[1:])
+    images[0].save(output_pdf, save_all=True, append_images=images[1:]) #Append images into PDF
 
 urls = [
     "https://revisionmaths.com/sites/mathsrevision.net/files/imce/1MA1_1H_que_20211103.pdf",
