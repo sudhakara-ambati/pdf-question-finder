@@ -27,7 +27,7 @@ def capture_screenshot_from_page(pdf_content, page_num):
 def create_pdf_with_images(images, output_pdf):
     images[0].save(output_pdf, save_all=True, append_images=images[1:]) #Append images into PDF
 
-urls = [
+maths = [
     "https://revisionmaths.com/sites/mathsrevision.net/files/imce/1MA1_1H_que_20211103.pdf",
     "https://revisionmaths.com/sites/mathsrevision.net/files/imce/1MA1_2H_que_20211105.pdf",
     "https://revisionmaths.com/sites/mathsrevision.net/files/imce/1MA1_3H_que_20211109.pdf",
@@ -54,10 +54,76 @@ urls = [
     "https://revisionmaths.com/sites/mathsrevision.net/files/imce/1MA1_3H_QP.pdf"
     ]
 
-search_words = ["box plot", "probability"]
+biology = [
+    "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-84611H-QP-JUN22.PDF",
+    "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-84612H-QP-JUN22.PDF",
+    "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2021/november/AQA-84611H-QP-NOV21.PDF",
+    "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2021/november/AQA-84612H-QP-NOV21.PDF",
+    "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2020/november/AQA-84611H-QP-NOV20.PDF",
+    "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2020/november/AQA-84612H-QP-NOV20.PDF",
+    "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2018/june/AQA-84611H-QP-JUN18.PDF",
+    "https://filestore.aqa.org.uk/resources/biology/AQA-84611H-SQP.PDF",
+    "https://filestore.aqa.org.uk/resources/biology/AQA-84612H-SQP.PDF",
+    "https://revisionscience.com/sites/revisionscience.com/files/imce/AQA-BL1HP-QP-JUN17.PDF",
+    "https://revisionscience.com/sites/revisionscience.com/files/imce/AQA-BL2HP-QP-JUN17.PDF",
+    "https://revisionscience.com/sites/revisionscience.com/files/imce/AQA-BL3HP-QP-JUN17.PDF",
+    "https://revisionscience.com/sites/revisionscience.com/files/imce/AQA-BL1HP-QP-JUN16.pdf",
+    "https://revisionscience.com/sites/revisionscience.com/files/imce/AQA-BL2HP-QP-JUN16.pdf",
+    "https://revisionscience.com/sites/revisionscience.com/files/imce/AQA-BL3HP-QP-JUN16.pdf",
+    "https://revisionscience.com/sites/revisionscience.com/files/imce/AQA-BL1HP-QP-JUN15.PDF",
+    "https://revisionscience.com/sites/revisionscience.com/files/imce/AQA-BL2HP-QP-JUN15.PDF",
+    "https://revisionscience.com/sites/revisionscience.com/files/imce/AQA-BL3HP-QP-JUN15.PDF"
+]
+
+chemistry = [
+    "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-84621H-QP-JUN22.PDF",
+    "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-84622H-QP-JUN22.PDF",
+    "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2021/november/AQA-84621H-QP-NOV21.PDF",
+    "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2021/november/AQA-84622H-QP-NOV21.PDF",
+    "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2020/november/AQA-84621H-QP-NOV20.PDF",
+    "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2020/november/AQA-84622H-QP-NOV20.PDF",
+    "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2019/june/AQA-84621H-QP-JUN19.PDF",
+    "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2018/june/AQA-84621H-QP-JUN18.PDF",
+    "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2018/june/AQA-84622H-QP-JUN18.PDF",
+    "https://filestore.aqa.org.uk/resources/chemistry/AQA-84621H-SQP.PDF",
+    "https://filestore.aqa.org.uk/resources/chemistry/AQA-84622H-SQP.PDF",
+    "https://revisionscience.com/sites/revisionscience.com/files/imce/AQA-CH1HP-QP-JUN17.PDF",
+    "https://revisionscience.com/sites/revisionscience.com/files/imce/AQA-CH2HP-QP-JUN17.PDF",
+    "https://revisionscience.com/sites/revisionscience.com/files/imce/AQA-CH3HP-QP-JUN17.PDF",
+    "https://revisionscience.com/sites/revisionscience.com/files/imce/AQA-CH1HP-QP-JUN16.pdf",
+    "https://revisionscience.com/sites/revisionscience.com/files/imce/AQA-CH2HP-QP-JUN16.pdf",
+    "https://revisionscience.com/sites/revisionscience.com/files/imce/AQA-CH3HP-QP-JUN16.pdf",
+    "https://revisionscience.com/sites/revisionscience.com/files/imce/AQA-CH1HP-QP-JUN15.PDF",
+    "https://revisionscience.com/sites/revisionscience.com/files/imce/AQA-CH2HP-QP-JUN15.PDF",
+    "https://revisionscience.com/sites/revisionscience.com/files/imce/AQA-CH3HP-QP-JUN15.PDF"
+]
+
+physics = [
+    "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-84631H-QP-JUN22.PDF",
+    "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-84632H-QP-JUN22.PDF",
+    "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2021/november/AQA-84631H-QP-NOV21.PDF",
+    "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2021/november/AQA-84632H-QP-NOV21.PDF",
+    "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2020/november/AQA-84631H-QP-NOV20.PDF",
+    "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2020/november/AQA-84632H-QP-NOV20.PDF",
+    "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2019/june/AQA-84632H-QP-JUN19.PDF",
+    "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2018/june/AQA-84632H-QP-JUN18.PDF",
+    "https://filestore.aqa.org.uk/resources/physics/AQA-84631H-SQP.PDF",
+    "https://filestore.aqa.org.uk/resources/physics/AQA-84632H-SQP.PDF",
+    "https://revisionscience.com/sites/revisionscience.com/files/imce/AQA-PH1HP-QP-JUN17.pdf",
+    "https://revisionscience.com/sites/revisionscience.com/files/imce/AQA-PH2HP-QP-JUN17.pdf",
+    "https://revisionscience.com/sites/revisionscience.com/files/imce/AQA-PH3HP-QP-JUN17.pdf",
+    "https://revisionscience.com/sites/revisionscience.com/files/imce/AQA-PH1HP-QP-JUN16.pdf",
+    "https://revisionscience.com/sites/revisionscience.com/files/imce/AQA-PH2HP-QP-JUN16.pdf",
+    "https://revisionscience.com/sites/revisionscience.com/files/imce/AQA-PH3HP-QP-JUN16.pdf",
+    "https://revisionscience.com/sites/revisionscience.com/files/imce/AQA-PH1HP-QP-JUN15.PDF",
+    "https://revisionscience.com/sites/revisionscience.com/files/imce/AQA-PH2HP-QP-JUN15.PDF",
+    "https://revisionscience.com/sites/revisionscience.com/files/imce/AQA-PH3HP-QP-JUN15.PDF"
+]
+
+search_words = ["isotope", "radioactiv", "half life", "half-life"]
 all_images = []
 
-for url in urls:
+for url in physics:
     pdf_response = requests.get(url)
     if pdf_response.status_code == 200:
         pdf_content = pdf_response.content
