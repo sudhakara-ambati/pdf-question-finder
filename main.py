@@ -120,7 +120,7 @@ physics = [
     "https://revisionscience.com/sites/revisionscience.com/files/imce/AQA-PH3HP-QP-JUN15.PDF"
 ]
 
-search_words = ["isotop", "radioactiv", "half life", "half-life"]
+search_words = ["isotope", "radioactiv", "half life", "half-life"]
 all_images = []
 
 for url in physics:
