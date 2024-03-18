@@ -3,6 +3,7 @@ import PyPDF2
 from io import BytesIO
 import fitz
 from PIL import Image
+import PIL
 
 def search_pdf_in_memory(pdf_content, search_words):
     found_pages = []
@@ -17,13 +18,29 @@ def search_pdf_in_memory(pdf_content, search_words):
                 
     return found_pages
 
-def capture_screenshot_from_page(pdf_content, page_num):
+def capture_screenshot_from_page(pdf_content, page_num, dpi=300, width=None, height=None):
     doc = fitz.open(stream=BytesIO(pdf_content))
     page = doc.load_page(page_num - 1)
-    pixmap = page.get_pixmap()
+    
+    # Calculate the width and height of the image based on DPI
+    if width is None or height is None:
+        width = page.rect.width  # Calculate width from the page rectangle
+        height = page.rect.height  # Calculate height from the page rectangle
+    else:
+        width *= dpi / 72.0  # Convert width to pixels based on DPI
+        height *= dpi / 72.0  # Convert height to pixels based on DPI
+    
+    # Calculate pixmap size based on DPI
+    zoom_factor = dpi / 72.0
+    matrix = fitz.Matrix(zoom_factor, zoom_factor)
+    
+    pixmap = page.get_pixmap(matrix=matrix)
     image = Image.frombytes("RGB", [pixmap.width, pixmap.height], pixmap.samples)
-    return image #Taking screenshot of page
-
+    
+    # Resize the image to the specified width and height
+    image = image.resize((int(width), int(height)), PIL.Image.Resampling.LANCZOS)
+    
+    return image
 def create_pdf_with_images(images, output_pdf):
     images[0].save(output_pdf, save_all=True, append_images=images[1:]) #Append images into PDF
 
@@ -146,7 +163,7 @@ english = [
 
 ]
 
-search_words = ["Question 3 − Dr Jekyll and Mr Hyde"]
+search_words = ["Dr Jekyll and Mr Hyde"]
 all_images = []
 
 for url in english:
@@ -159,7 +176,7 @@ for url in english:
             print(f"The words '{', '.join(search_words)}' were found on pages: {', '.join(map(str, found_pages))}")
             images = []
             for page_num in found_pages:
-                image = capture_screenshot_from_page(pdf_content, page_num)
+                image = capture_screenshot_from_page(pdf_content, page_num, dpi=300, width=None, height=None)
                 images.append(image)
             all_images.extend(images)
             print(f"Images from {url} appended.")
