@@ -120,10 +120,36 @@ physics = [
     "https://revisionscience.com/sites/revisionscience.com/files/imce/AQA-PH3HP-QP-JUN15.PDF"
 ]
 
-search_words = ["isotope", "radioactiv", "half life", "half-life"]
+english = [
+    "https://revisionworld.com/sites/revisionworld.com/files/imce/1et0-01-que-20220526.pdf",
+    "https://revisionworld.com/sites/revisionworld.com/files/imce/1et0-2n-que-20220609.pdf",
+    "https://revisionworld.com/sites/revisionworld.com/files/imce/1et0-2p-que-20220609.pdf",
+    "https://revisionworld.com/sites/revisionworld.com/files/imce/1ET0_01_que_20211117.pdf",
+    "https://revisionworld.com/sites/revisionworld.com/files/imce/1ET0_2N_que_20211123.pdf",
+    "https://revisionworld.com/sites/revisionworld.com/files/imce/1ET0_2P_que_20211123.pdf",
+    "https://revisionworld.com/sites/revisionworld.com/files/imce/1ET0_01_que_20201106.pdf",
+    "https://revisionworld.com/sites/revisionworld.com/files/imce/1ET0_02_que_20201113.pdf",
+    "https://revisionworld.com/sites/revisionworld.com/files/imce/1ET0_01_que_20190516.pdf",
+    "https://revisionworld.com/sites/revisionworld.com/files/imce/1ET0_02_que_20190524.pdf",
+    "https://revisionworld.com/sites/revisionworld.com/files/imce/1ET0_01_que_20180523.pdf",
+    "https://revisionworld.com/sites/revisionworld.com/files/imce/1ET0_02_que_20180526.pdf",
+    "https://revisionworld.com/sites/revisionworld.com/files/imce/1ET0_01_que_20170522.pdf",
+    "https://revisionworld.com/sites/revisionworld.com/files/imce/1ET0_02_que_20170526.pdf",
+    "https://revisionworld.com/sites/revisionworld.com/files/imce/5ET1H_01_que_20160523.pdf",
+    "https://revisionworld.com/sites/revisionworld.com/files/imce/5ET2H_01_que_20160527.pdf",
+    "https://revisionworld.com/sites/revisionworld.com/files/imce/5ET1H_01_que_20150518.pdf",
+    "https://revisionworld.com/sites/revisionworld.com/files/imce/5ET2H_01_que_20150522.pdf",
+    "https://revisionworld.com/sites/revisionworld.com/files/imce/Question-paper-Unit-1H-June-2014.pdf",
+    "https://revisionworld.com/sites/revisionworld.com/files/imce/Question-paper-Unit-2H-June-2014.pdf",
+    "https://revisionworld.com/sites/revisionworld.com/files/imce/5ET1H_01_que_20130520.pdf",
+    "https://revisionworld.com/sites/revisionworld.com/files/imce/5ET2H_01_que_20130523.pdf"
+
+]
+
+search_words = ["Question 3 − Dr Jekyll and Mr Hyde"]
 all_images = []
 
-for url in physics:
+for url in english:
     pdf_response = requests.get(url)
     if pdf_response.status_code == 200:
         pdf_content = pdf_response.content
