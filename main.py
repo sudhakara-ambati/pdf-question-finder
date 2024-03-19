@@ -196,12 +196,39 @@ computing = [
     "https://revisionworld.com/sites/revisionworld.com/files/imce/244146-question-paper-unit-a451-01-computer-systems-and-programming.pdf"
 ]
 
+alevel_computing = [
+    "https://cdn.savemyexams.com/uploads/2022/02/h446-01-june-2018-qp-ocr-a-level-computer-science.pdf",
+    "https://cdn.savemyexams.com/uploads/2022/02/h446-02-june-2018-qp-ocr-a-level-computer-science.pdf",
+    "https://cdn.savemyexams.com/uploads/2022/02/h446-01-june-2017-qp-ocr-a-level-computer-science.pdf",
+    "https://cdn.savemyexams.com/uploads/2022/02/h446-02-june-2017-qp-ocr-a-level-computer-science.pdf",
+    "https://www.ocr.org.uk/Images/676742-question-paper-computer-systems.pdf",
+    "https://www.ocr.org.uk/Images/676743-question-paper-algorithms-and-programming.pdf",
+    "https://www.ocr.org.uk/Images/666846-question-paper-computer-systems.pdf",
+    "https://www.ocr.org.uk/Images/666847-question-paper-algorithms-and-programming.pdf",
+    "https://cdn.savemyexams.com/uploads/2022/02/h446-01-june-2019-qp-ocr-a-level-computer-science.pdf",
+    "https://cdn.savemyexams.com/uploads/2022/02/h446-02-june-2019-qp-ocr-a-level-computer-science.pdf",
+    "https://www.ocr.org.uk/Images/642804-question-paper-computer-systems.pdf",
+    "https://www.ocr.org.uk/Images/642805-question-paper-algorithms-and-programming.pdf"
+    "https://www.ocr.org.uk/Images/621076-question-paper-computer-systems.pdf",
+    "https://www.ocr.org.uk/Images/621077-question-paper-algorithms-and-programming.pdf",
+    "https://www.revisely.com/documents/papers/alevel/computer-science/ocr/40252-as-paper-1-qp.pdf",
+    "https://www.revisely.com/documents/papers/alevel/computer-science/ocr/74922-as-paper-2-qp.pdf",
+    "https://www.revisely.com/documents/papers/alevel/computer-science/ocr/99750-as-paper-1-qp.pdf",
+    "https://www.revisely.com/documents/papers/alevel/computer-science/ocr/95956-as-paper-2-qp.pdf",
+    "https://www.revisely.com/documents/papers/alevel/computer-science/ocr/64732-as-paper-1-qp.pdf",
+    "https://www.revisely.com/documents/papers/alevel/computer-science/ocr/71113-as-paper-2-qp.pdf",
+    "https://www.revisely.com/documents/papers/alevel/computer-science/ocr/63572-as-paper-1-qp.pdf",
+    "https://www.revisely.com/documents/papers/alevel/computer-science/ocr/47263-as-paper-2-qp.pdf",
+    "https://www.revisely.com/documents/papers/alevel/computer-science/ocr/88763-as-paper-1-qp.pdf",
+    "https://www.revisely.com/documents/papers/alevel/computer-science/ocr/46325-as-paper-2-qp.pdf"
+]
 
-search_words = ["search", "sort"]
+
+search_words = ["flip-flop", "adder", "adders"]
 all_images = []
 
 
-for url in computing:
+for url in alevel_computing:
     pdf_response = requests.get(url)
     if pdf_response.status_code == 200:
         pdf_content = pdf_response.content
