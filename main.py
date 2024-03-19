@@ -5,6 +5,7 @@ import fitz
 from PIL import Image
 import PIL
 
+
 def search_pdf_in_memory(pdf_content, search_words):
     found_pages = []
     reader = PyPDF2.PdfReader(BytesIO(pdf_content)) #PDF Content
@@ -18,17 +19,18 @@ def search_pdf_in_memory(pdf_content, search_words):
                 
     return found_pages
 
+
 def capture_screenshot_from_page(pdf_content, page_num, dpi=300, width=None, height=None):
     doc = fitz.open(stream=BytesIO(pdf_content))
     page = doc.load_page(page_num - 1)
     
     # Calculate the width and height of the image based on DPI
     if width is None or height is None:
-        width = page.rect.width  # Calculate width from the page rectangle
-        height = page.rect.height  # Calculate height from the page rectangle
+        width = page.rect.width # Calculate width from the page rectangle
+        height = page.rect.height # Calculate height from the page rectangle
     else:
-        width *= dpi / 72.0  # Convert width to pixels based on DPI
-        height *= dpi / 72.0  # Convert height to pixels based on DPI
+        width *= dpi / 72.0 # Convert width to pixels based on DPI
+        height *= dpi / 72.0 # Convert height to pixels based on DPI
     
     # Calculate pixmap size based on DPI
     zoom_factor = dpi / 72.0
@@ -43,6 +45,7 @@ def capture_screenshot_from_page(pdf_content, page_num, dpi=300, width=None, hei
     return image
 def create_pdf_with_images(images, output_pdf):
     images[0].save(output_pdf, save_all=True, append_images=images[1:]) #Append images into PDF
+
 
 maths = [
     "https://revisionmaths.com/sites/mathsrevision.net/files/imce/1MA1_1H_que_20211103.pdf",
@@ -71,6 +74,7 @@ maths = [
     "https://revisionmaths.com/sites/mathsrevision.net/files/imce/1MA1_3H_QP.pdf"
     ]
 
+
 biology = [
     "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-84611H-QP-JUN22.PDF",
     "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-84612H-QP-JUN22.PDF",
@@ -91,6 +95,7 @@ biology = [
     "https://revisionscience.com/sites/revisionscience.com/files/imce/AQA-BL2HP-QP-JUN15.PDF",
     "https://revisionscience.com/sites/revisionscience.com/files/imce/AQA-BL3HP-QP-JUN15.PDF"
 ]
+
 
 chemistry = [
     "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-84621H-QP-JUN22.PDF",
@@ -115,6 +120,7 @@ chemistry = [
     "https://revisionscience.com/sites/revisionscience.com/files/imce/AQA-CH3HP-QP-JUN15.PDF"
 ]
 
+
 physics = [
     "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-84631H-QP-JUN22.PDF",
     "https://filestore.aqa.org.uk/sample-papers-and-mark-schemes/2022/june/AQA-84632H-QP-JUN22.PDF",
@@ -136,6 +142,7 @@ physics = [
     "https://revisionscience.com/sites/revisionscience.com/files/imce/AQA-PH2HP-QP-JUN15.PDF",
     "https://revisionscience.com/sites/revisionscience.com/files/imce/AQA-PH3HP-QP-JUN15.PDF"
 ]
+
 
 english = [
     "https://revisionworld.com/sites/revisionworld.com/files/imce/1et0-01-que-20220526.pdf",
@@ -160,13 +167,41 @@ english = [
     "https://revisionworld.com/sites/revisionworld.com/files/imce/Question-paper-Unit-2H-June-2014.pdf",
     "https://revisionworld.com/sites/revisionworld.com/files/imce/5ET1H_01_que_20130520.pdf",
     "https://revisionworld.com/sites/revisionworld.com/files/imce/5ET2H_01_que_20130523.pdf"
-
 ]
 
-search_words = ["Dr Jekyll and Mr Hyde"]
+
+computing = [
+    "https://revisionworld.com/sites/revisionworld.com/files/imce/677830-question-paper-computer-systems.pdf",
+    "https://revisionworld.com/sites/revisionworld.com/files/imce/677831-question-paper-computational-thinking-algorithms-and-programming.pdf",
+    "https://revisionworld.com/sites/revisionworld.com/files/imce/552500-computer-systems-.pdf",
+    "https://revisionworld.com/sites/revisionworld.com/files/imce/552502-computational-thinking-algorithms-and-programming.pdf",
+    "https://revisionworld.com/sites/revisionworld.com/files/imce/667555-question-paper-computer-systems.pdf",
+    "https://revisionworld.com/sites/revisionworld.com/files/imce/667556-question-paper-computational-thinking-algorithms-and-programming.pdf",
+    "https://revisionworld.com/sites/revisionworld.com/files/imce/642760-question-paper-computer-systems.pdf",
+    "https://revisionworld.com/sites/revisionworld.com/files/imce/642761-question-paper-computational-thinking-algorithms-and-programming.pdf",
+    "https://revisionworld.com/sites/revisionworld.com/files/imce/619639-question-paper-computer-systems.pdf",
+    "https://revisionworld.com/sites/revisionworld.com/files/imce/619640-question-paper-computational-thinking-algorithms-and-programming.pdf",
+    "https://revisionworld.com/sites/revisionworld.com/files/imce/536751-question-paper-computer-systems.pdf",
+    "https://revisionworld.com/sites/revisionworld.com/files/imce/536752-question-paper-computational-thinking-algorithms-and-programming.pdf",
+    "https://revisionworld.com/sites/revisionworld.com/files/imce/470198-question-paper-unit-b061-02-ict-in-today-s-world.pdf",
+    "https://revisionworld.com/sites/revisionworld.com/files/imce/470199-question-paper-unit-b063-02-ict-in-context.pdf",
+    "https://revisionworld.com/sites/revisionworld.com/files/imce/469791-question-paper-unit-a451-01-computer-systems-and-programming.pdf",
+    "https://revisionworld.com/sites/revisionworld.com/files/imce/412735-question-paper-unit-b061-02-ict-in-today-s-world.pdf",
+    "https://revisionworld.com/sites/revisionworld.com/files/imce/412737-question-paper-unit-b063-02-ict-in-context.pdf",
+    "https://revisionworld.com/sites/revisionworld.com/files/imce/412357-question-paper-unit-a451-01-computer-systems-and-programming.pdf",
+    "https://revisionworld.com/sites/revisionworld.com/files/imce/321222-question-paper-unit-b061-02-ict-in-today-s-world.pdf",
+    "https://revisionworld.com/sites/revisionworld.com/files/imce/320770-question-paper-unit-a451-01-computer-systems-and-programming.pdf",
+    "https://revisionworld.com/sites/revisionworld.com/files/244630-question-paper-unit-b061-02-ict-in-today-s-world.pdf",
+    "https://revisionworld.com/sites/revisionworld.com/files/244632-question-paper-unit-b063-02-ict-in-context.pdf",
+    "https://revisionworld.com/sites/revisionworld.com/files/imce/244146-question-paper-unit-a451-01-computer-systems-and-programming.pdf"
+]
+
+
+search_words = ["search", "sort"]
 all_images = []
 
-for url in english:
+
+for url in computing:
     pdf_response = requests.get(url)
     if pdf_response.status_code == 200:
         pdf_content = pdf_response.content
@@ -184,6 +219,7 @@ for url in english:
             print(f"The word was not found in the PDF from {url}.")
     else:
         print(f"Failed to download PDF from {url}.")
+
 
 output_pdf = "_".join(search_words) + ".pdf"
 create_pdf_with_images(all_images, output_pdf)
