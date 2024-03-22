@@ -223,8 +223,41 @@ alevel_computing = [
     "https://www.revisely.com/documents/papers/alevel/computer-science/ocr/46325-as-paper-2-qp.pdf"
 ]
 
+geography = [
+    "https://mmerevise.co.uk/app/uploads/2023/08/AQA-GCSE-Geography-Paper-1-June-2022.pdf",
+    "https://mmerevise.co.uk/app/uploads/2023/08/AQA-GCSE-Geography-Paper-2-June-2022.pdf",
+    "https://mmerevise.co.uk/app/uploads/2023/08/AQA-GCSE-Geography-Paper-3-June-2022.pdf",
+    "https://mmerevise.co.uk/app/uploads/2022/08/AQA-GCSE-Geography-November-2021-Paper-1.pdf",
+    "https://mmerevise.co.uk/app/uploads/2022/08/AQA-GCSE-Geography-November-2021-Paper-2.pdf",
+    "https://mmerevise.co.uk/app/uploads/2022/08/AQA-GCSE-Geography-November-2021-Paper-3.pdf",
+    "https://mmerevise.co.uk/app/uploads/2022/01/AQA-GCSE-NOV2020-Geography-Paper-1-QP.pdf",
+    "https://mmerevise.co.uk/app/uploads/2022/01/AQA-GCSE-NOV2020-Geography-Paper-2-QP.pdf",
+    "https://mmerevise.co.uk/app/uploads/2022/01/AQA-GCSE-NOV2020-Geography-Paper-3-QP.pdf",
+    "https://mmerevise.co.uk/app/uploads/2021/09/AQA-GCSE-Geography-Paper-1-QP.pdf",
+    "https://mmerevise.co.uk/app/uploads/2021/09/AQA-GCSE-Geography-Paper-2-QP.pdf",
+    "https://mmerevise.co.uk/app/uploads/2021/09/AQA-GCSE-Geography-Paper-3-QP.pdf",
+    "https://mmerevise.co.uk/app/uploads/2022/01/AQA-GCSE-JUN2018-Geography-Paper-1-QP.pdf",
+    "https://mmerevise.co.uk/app/uploads/2022/01/AQA-GCSE-JUN2018-Geography-Paper-2-QP.pdf",
+    "https://mmerevise.co.uk/app/uploads/2022/01/AQA-GCSE-JUN2018-Geography-Paper-3-QP.pdf",
+    "https://mmerevise.co.uk/app/uploads/2018/11/AQA-80351-SQP.pdf",
+    "https://mmerevise.co.uk/app/uploads/2018/11/AQA-80352-SQP.pdf",
+    "https://mmerevise.co.uk/app/uploads/2018/11/AQA-80353-SQP.pdf",
+    "https://mmerevise.co.uk/app/uploads/2018/11/AQA-90301H-QP-JUN16.pdf",
+    "https://mmerevise.co.uk/app/uploads/2018/11/AQA-90302H-QP-JUN16.pdf",
+    "https://mmerevise.co.uk/app/uploads/2018/11/AQA-90301H-QP-JUN16-1.pdf",
+    "https://mmerevise.co.uk/app/uploads/2018/11/AQA-90302H-QP-JUN16-1.pdf",
+    "https://mmerevise.co.uk/app/uploads/2018/11/AQA-90301H-QP-JUN15-CR.pdf",
+    "https://mmerevise.co.uk/app/uploads/2018/11/AQA-90302H-QP-JUN15.pdf",
+    "https://mmerevise.co.uk/app/uploads/2018/11/AQA-90351H-QP-JUN15.pdf",
+    "https://mmerevise.co.uk/app/uploads/2018/11/AQA-90352H-QP-JUN15.pdf",
+    "https://mmerevise.co.uk/app/uploads/2018/11/AQA-90301H-QP-JUN14.pdf",
+    "https://mmerevise.co.uk/app/uploads/2018/11/AQA-90302H-QP-JUN14.pdf",
+    "https://mmerevise.co.uk/app/uploads/2018/11/AQA-90351H-QP-JUN14.pdf",
+    "https://mmerevise.co.uk/app/uploads/2018/11/AQA-90352H-QP-JUN14-CR.pdf"
+]
 
-search_words = ["flip-flop", "adder", "adders"]
+
+search_words = ["urbanisation", "urban"]
 all_images = []
 
 
