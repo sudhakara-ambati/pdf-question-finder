@@ -27,7 +27,7 @@
 ## Usage
 
 1. **Prepare Your Past Papers:**
-   - Ensure your past papers are in PDF or DOCX format and placed in a directory.
+   - Ensure your past papers are in PDF format and placed in a directory.
 
 2. **Run the Script:**
 
