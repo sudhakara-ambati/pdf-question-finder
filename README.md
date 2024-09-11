@@ -13,7 +13,7 @@
 
     ```bash
     git clone https://github.com/yourusername/past-papers-topic-search.git
-    cd past-papers-topic-search
+    cd pdf-question-finder
     ```
 
 2. **Install Dependencies:**
