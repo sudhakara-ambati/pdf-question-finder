@@ -12,7 +12,7 @@
 1. **Clone the Repository:**
 
     ```bash
-    git clone https://github.com/yourusername/ppdf-question-finder.git
+    git clone https://github.com/sudhakara-ambati/ppdf-question-finder.git
     cd pdf-question-finder
     ```
 
